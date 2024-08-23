@@ -1,5 +1,4 @@
-// Section 9
-// Challenge - solution
+
 /*
     This challenge is about using a collection (list) of integers and allowing the user
     to select options from a menu to perform operations on the list.
@@ -130,27 +129,7 @@ int main()
                 cout << "The smallest number is: " << smallest << endl;
             }
         }
-        else if (selection == 'L' || selection == 'l')
-        {
-            if (numbers.size() == 0)
-                cout << "Unable to determine largest - list is empty" << endl;
-            else
-            {
-                int largest = numbers.at(0);
-                for (auto num : numbers)
-                    if (num > largest)
-                        largest = num;
-                cout << "The largest number is: " << largest << endl;
-            }
-        }
-        else if (selection == 'Q' || selection == 'q')
-        {
-            cout << "Goodbye" << endl;
-        }
-        else
-        {
-            cout << "Unknown selection, please try again" << endl;
-        }
+
     } while (selection != 'q' && selection != 'Q');
 
     cout << endl;
