@@ -3,7 +3,7 @@
 
 // Function prototypes
 void increment_watched(Movies &movies, std::string name);
-void add_movie(Movies &movies, std::string name, std::string rating, int watched);
+void add_movie(Movies &movies, std::string name, std::string rating, int watched, std::string comment);
 
 /******************************************************************
  * helper function 
@@ -34,8 +34,8 @@ void increment_watched(Movies &movies, std::string name) {
 *  otherwise the movie was not added 
 *  because the name of the movie was already in movies
  * ***************************************************************/
-void add_movie(Movies &movies, std::string name, std::string rating, int watched) {
-    if (movies.add_movie(name,rating,watched)) {
+void add_movie(Movies &movies, std::string name, std::string rating, int watched, std::string comment) {
+    if (movies.add_movie(name,rating,watched, comment)) {
         std::cout << name << " added" << std::endl;
     } else {
         std::cout << name << " already exists" <<  std::endl;
@@ -48,20 +48,24 @@ int main() {
     
     my_movies.display();
     
-    add_movie(my_movies, "Big", "PG-13",2);                 // OK
-    add_movie(my_movies,"Star Wars", "PG",5);             // OK
-    add_movie(my_movies,"Cinderella", "PG",7);           // OK
+    add_movie(my_movies, "Big", "PG-13",2,"amazing comment");                 // OK
+    add_movie(my_movies,"Star Wars", "PG",5,"amazing comment");             // OK
+    add_movie(my_movies,"Cinderella", "PG",7,"amazing comment");  // OK
+    
+    my_movies.display_comments();         
      
     my_movies.display();   // Big, Star Wars, Cinderella
     
-    add_movie(my_movies,"Cinderella", "PG",7);            // Already exists
-    add_movie(my_movies,"Ice Age", "PG",12);              // OK
- 
+    add_movie(my_movies,"Cinderella", "PG",7,"amazing comment");            // Already exists
+    add_movie(my_movies,"Ice Age", "PG",12,"amazing comment");              // OK
+    
+    my_movies.display_comments();
     my_movies.display();    // Big, Star Wars, Cinderella, Ice Age
     
     increment_watched(my_movies,"Big");                    // OK
     increment_watched(my_movies,"Ice Age");              // OK
     
+    my_movies.display_comments();
     my_movies.display();    // Big and Ice Age watched count incremented by 1
     
     increment_watched(my_movies,"XXX");         // XXX not found

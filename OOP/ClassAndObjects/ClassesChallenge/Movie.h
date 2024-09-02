@@ -9,10 +9,11 @@ private:
     std::string name;   // the name of the movie
     std::string rating;   // the movie rating G,PG, PG-13, R
     int watched;          // the number of times you've watched the movie
+    std::string comment; //comments;
 
 public:
     // Constructor - expects all 3 movie attributes
-    Movie(std::string name, std::string rating, int watched);
+    Movie(std::string name, std::string rating, int watched, std:: string comment);
 
      // Copy constructor 
     Movie(const Movie &source); 
@@ -26,17 +27,22 @@ public:
     void set_name(std::string name){this->name = name;}
     std::string get_name() const { return name; }
 
-      void set_rating(std::string rating) {this->rating = rating; }
+    void set_rating(std::string rating) {this->rating = rating; }
     std::string get_rating() const { return rating; }
     
     void set_watched(int watched) {this->watched = watched; }
     int get_watched() const { return watched; }
+
+    void set_comment(std::string comment){this->comment = comment;}
+    std::string get_comment() const{return comment;}
 
     // Simply increment the watched attribute by 1
     void increment_watched() { ++watched; }
 
     // simply displays the movie information ex.) Big, PG-13, 2
     void display() const;
+
+    void display_comment() const;
 
 };
 

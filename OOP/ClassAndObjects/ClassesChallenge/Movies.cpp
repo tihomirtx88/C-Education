@@ -23,7 +23,7 @@ Movies::~Movies() {
     Otherwise, create a movie object from the provided information
     and add that movie object to the movies vector and return true
     *********************************************************************/
-bool Movies::add_movie(std::string name, std::string rating, int watched) {
+bool Movies::add_movie(std::string name, std::string rating, int watched, std::string comment) {
     for(const Movie &movie: movies){
         // const prevent changing movie in loop
         if(movie.get_name() == name){
@@ -31,7 +31,7 @@ bool Movies::add_movie(std::string name, std::string rating, int watched) {
         }
     }
 
-     Movie temp{name, rating, watched};
+     Movie temp{name, rating, watched, comment};
      movies.push_back(temp);
      return true;
 }
@@ -71,6 +71,18 @@ void Movies::display() const {
         std::cout << "\n===================================" << std::endl;
         for (const auto &movie: movies)
             movie.display();
+        std::cout << "\n===================================" << std::endl;
+    }
+}
+
+// Extendet functionality
+void Movies::display_comments() const {
+    if (movies.size() == 0) {
+        std::cout << "Sorry, no movies to display\n" << std::endl;
+    } else {
+        std::cout << "\n===================================" << std::endl;
+        for (const auto &movie: movies)
+            movie.display_comment();
         std::cout << "\n===================================" << std::endl;
     }
 }
