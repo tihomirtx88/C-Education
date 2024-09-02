@@ -23,7 +23,7 @@ public:
     Otherwise, create a movie object from the provided information
     and add that movie object to the movies vector and return true
     *********************************************************************/
-    bool add_movie(std::string name, std::string rating, int watched);
+    bool add_movie(std::string name, std::string rating, int watched, std::string comment);
 
     /*************************************************************************
     increment_watched expects the name of the move to increment the
@@ -46,6 +46,9 @@ public:
     object displays itself
     *********************************************************************/
     void display() const;
+
+    // Extended functionality
+    void display_comments() const;
 };
 
 #endif // _MOVIES_H_
