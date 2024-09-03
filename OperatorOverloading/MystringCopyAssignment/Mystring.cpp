@@ -41,11 +41,11 @@ Mystring::~Mystring() {
 // Copy assignment
 Mystring &Mystring::operator=(const Mystring &rhs){
     std::cout << "Copy assignment" << std::endl;
-    if (this == &rhs)
+    if (this == &rhs) //check if i am not asign itself
         return *this;
-    delete [] this->str; //Clean prevent memory leak
-    str = new char[std::strlen(rhs.str) + 1]; //assignment the str in to string with copy length 
-    std::strcpy(this->str, rhs.str); //coopy
+    delete [] this->str; //Delete left side object 
+    str = new char[std::strlen(rhs.str) + 1]; //allocated str pointer to new refernces or right side str  
+    std::strcpy(this->str, rhs.str); //coopy in heap
     return *this; //and return it
 }
 
