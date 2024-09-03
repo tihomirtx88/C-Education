@@ -41,9 +41,9 @@ Mystring::~Mystring() {
 // Copy assignment
 Mystring &Mystring::operator=(const Mystring &rhs){
     std::cout << "Copy assignment" << std::endl;
-    if (this == &rhs) //check if i am not asign itself
+    if (this == &rhs) //check for self assinging
         return *this;
-    delete [] this->str; //Delete left side object 
+    delete [] this->str; //delocate storage for this-> str since we are overwriting it 
     str = new char[std::strlen(rhs.str) + 1]; //allocated str pointer to new refernces or right side str  
     std::strcpy(this->str, rhs.str); //coopy in heap
     return *this; //and return it
