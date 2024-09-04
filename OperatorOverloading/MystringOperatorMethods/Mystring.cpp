@@ -83,7 +83,7 @@ bool Mystring::operator==(const Mystring &rhs) const {
 
 // Make lowercase
 Mystring Mystring::operator-() const{
-    char *buff = new char[std::strlen(str) + 1];
+    char *buff = new char[std::strlen(str) + 1]; 
     std::strcpy(buff, str);
     for (size_t i=0; i<std::strlen(buff); i++)
         buff[i] = std::tolower(buff[i]);

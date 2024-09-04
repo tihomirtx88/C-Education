@@ -17,7 +17,7 @@ public:
 
     Mystring operator-() const;                    // make lowercase
     Mystring operator+(const Mystring &rhs) const; // concatenate
-    
+
     bool operator==(const Mystring &rhs) const;
 
     void display() const;
